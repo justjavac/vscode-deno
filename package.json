@@ -2,7 +2,7 @@
   "name": "vscode-deno",
   "displayName": "%deno.displayName%",
   "description": "%deno.description%",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "publisher": "justjavac",
   "icon": "deno.png",
   "galleryBanner": {
@@ -19,8 +19,13 @@
   "engines": {
     "vscode": "^1.25.0"
   },
-  "categories": ["Programming Languages", "Other"],
-  "keywords": ["deno"],
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "keywords": [
+    "deno"
+  ],
   "activationEvents": [
     "onLanguage:typescript",
     "onLanguage:typescriptreact",
@@ -65,7 +70,11 @@
         },
         "deno.packageManager": {
           "type": "string",
-          "enum": ["npm", "yarn", "pnpm"],
+          "enum": [
+            "npm",
+            "yarn",
+            "pnpm"
+          ],
           "default": "npm",
           "description": "%deno.config.packageManager%"
         },
@@ -81,7 +90,10 @@
           "description": "%deno.config.autoFmtOnSave%"
         },
         "deno.dtsPath": {
-          "type": ["string", "null"],
+          "type": [
+            "string",
+            "null"
+          ],
           "default": null,
           "description": "%deno.config.dtsPath%"
         }
@@ -90,12 +102,18 @@
     "languages": [
       {
         "id": "ignore",
-        "filenames": [".denoignore"]
+        "filenames": [
+          ".denoignore"
+        ]
       },
       {
         "id": "jsonc",
-        "filenames": [".denorc"],
-        "filenamePatterns": ["denorc.*.json"]
+        "filenames": [
+          ".denorc"
+        ],
+        "filenamePatterns": [
+          "denorc.*.json"
+        ]
       }
     ],
     "jsonValidation": [
@@ -129,7 +147,10 @@
     }
   },
   "lint-staged": {
-    "**/*.{js,ts,json,md}": ["yarn format", "git add"]
+    "**/*.{js,ts,json,md}": [
+      "yarn format",
+      "git add"
+    ]
   },
   "devDependencies": {
     "@types/execa": "^0.9.0",
