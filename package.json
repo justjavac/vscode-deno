@@ -88,6 +88,14 @@
           "type": "boolean",
           "default": false,
           "description": "%deno.config.autoFmtOnSave%"
+        },
+        "deno.dtsPath": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null,
+          "description": "%deno.config.dtsPath%"
         }
       }
     },
