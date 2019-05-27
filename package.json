@@ -113,7 +113,17 @@
         "language": "typescript",
         "path": "./snippets/deno.json"
       }
-    ]
+    ],
+    "configurationDefaults": {
+      "[typescript]": {
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": "justjavac.vscode-deno"
+      },
+      "[markdown]": {
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": "justjavac.vscode-deno"
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn compile",
