@@ -192,7 +192,7 @@ export async function activate(context: ExtensionContext) {
   );
 
   const formatter = languages.registerDocumentFormattingEditProvider(
-    ["typescript", "javascript", "markdown"],
+    ["typescript", "markdown"],
     {
       async provideDocumentFormattingEdits(document: TextDocument) {
         const filename = path.basename(document.uri.fsPath);
