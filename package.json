@@ -19,8 +19,13 @@
   "engines": {
     "vscode": "^1.25.0"
   },
-  "categories": ["Programming Languages", "Other"],
-  "keywords": ["deno"],
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "keywords": [
+    "deno"
+  ],
   "activationEvents": [
     "onLanguage:typescript",
     "onLanguage:typescriptreact",
@@ -65,7 +70,11 @@
         },
         "deno.packageManager": {
           "type": "string",
-          "enum": ["npm", "yarn", "pnpm"],
+          "enum": [
+            "npm",
+            "yarn",
+            "pnpm"
+          ],
           "default": "npm",
           "description": "%deno.config.packageManager%"
         },
@@ -81,7 +90,10 @@
           "description": "%deno.config.autoFmtOnSave%"
         },
         "deno.dtsPath": {
-          "type": ["string", "null"],
+          "type": [
+            "string",
+            "null"
+          ],
           "default": null,
           "description": "%deno.config.dtsPath%"
         }
@@ -90,12 +102,18 @@
     "languages": [
       {
         "id": "ignore",
-        "filenames": [".denoignore"]
+        "filenames": [
+          ".denoignore"
+        ]
       },
       {
         "id": "jsonc",
-        "filenames": [".denorc"],
-        "filenamePatterns": ["denorc.*.json"]
+        "filenames": [
+          ".denorc"
+        ],
+        "filenamePatterns": [
+          "denorc.*.json"
+        ]
       }
     ],
     "jsonValidation": [
@@ -127,7 +145,7 @@
   },
   "scripts": {
     "vscode:prepublish": "yarn compile",
-    "postinstall": "node ./node_modules/vscode/bin/install",
+    "postinstall": "node ./node_modules/vscode/bin/install && opencollective-postinstall",
     "watch": "tsc -watch -p ./",
     "compile": "tsc -p ./",
     "check": "deno run --allow-read --allow-write https://deno.land/std/prettier/main.ts --check --ignore \"node_modules\" --ignore \"out\"",
@@ -139,7 +157,10 @@
     }
   },
   "lint-staged": {
-    "**/*.{js,ts,json,md}": ["yarn format", "git add"]
+    "**/*.{js,ts,json,md}": [
+      "yarn format",
+      "git add"
+    ]
   },
   "devDependencies": {
     "@types/execa": "^0.9.0",
@@ -152,8 +173,13 @@
   },
   "dependencies": {
     "execa": "^1.0.0",
+    "opencollective-postinstall": "^2.0.2",
     "typescript-deno-plugin": "^1.2.5",
     "vscode-nls": "^4.1.1",
     "which": "^1.3.1"
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/vscode-deno"
   }
 }
