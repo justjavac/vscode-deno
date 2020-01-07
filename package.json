@@ -116,11 +116,9 @@
     ],
     "configurationDefaults": {
       "[typescript]": {
-        "editor.formatOnSave": false,
         "editor.defaultFormatter": "justjavac.vscode-deno"
       },
       "[markdown]": {
-        "editor.formatOnSave": false,
         "editor.defaultFormatter": "justjavac.vscode-deno"
       }
     }
