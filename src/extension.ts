@@ -206,7 +206,7 @@ export async function activate(context: ExtensionContext) {
           [
             "run",
             "--allow-read",
-            "https://deno.land/std/prettier/main.ts",
+            "https://deno.land/x/prettier/main.ts",
             filename
           ],
           { cwd }
