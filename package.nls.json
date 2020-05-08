@@ -1,6 +1,6 @@
 {
-  "deno.displayName": "Deno",
-  "deno.description": "Deno support for VSCode",
+  "deno.displayName": "[Deprecated] Deno",
+  "deno.description": "*Deprecated*. Get official 'deno' extension from the VS Code Marketplace.",
   "deno.command.enable": "Enable Deno",
   "deno.command.disable": "Disable Deno",
   "deno.config.enabled": "Controls whether deno is enabled or not.",
