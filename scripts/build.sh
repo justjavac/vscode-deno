@@ -20,6 +20,7 @@ yarn run compile
 
 # Copy files to package root
 cp package.* yarn.lock deno.png CHANGELOG.md README.md dist
+cp -r schemas dist
 # Copy files to client directory
 cp client/package.json client/yarn.lock dist/client
 # Copy files to server directory
