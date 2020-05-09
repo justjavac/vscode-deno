@@ -16,11 +16,11 @@ import {
   isJavaScriptDocument,
   getVersions,
   generateDtsForDeno,
-  downloadDtsForDeno,
   getTypeScriptLanguageExtension,
   getServerOptions,
-  delay,
+  restartTsServer,
 } from "./utils";
+import { bundledDtsPath } from "./deno";
 
 const denoExtensionId = "justjavac.vscode-deno";
 const pluginId = "typescript-deno-plugin";
@@ -246,7 +246,6 @@ export async function activate(context: vscode.ExtensionContext) {
     outputChannel.appendLine(
       "See https://github.com/denoland/deno_install for more installation options.\n",
     );
-    downloadDtsForDeno();
   } else {
     statusBarItem.tooltip = versions.raw;
     outputChannel.appendLine("Found deno, version:");
@@ -377,7 +376,7 @@ export async function activate(context: vscode.ExtensionContext) {
         vscode.window.withProgress(
           {
             location: vscode.ProgressLocation.Window,
-            title: "Initializing Deno language features",
+            title: "Initializing Deno language service",
           },
           () =>
             new Promise((resolve) => {
@@ -403,7 +402,9 @@ function synchronizeConfiguration(api: any) {
 
   api.configurePlugin(pluginId, {
     ...config,
-    dtsPath: bundledDtsPath(),
+    dtsPath: bundledDtsPath(
+      vscode.extensions.getExtension(denoExtensionId).extensionPath,
+    ),
   });
 }
 
@@ -445,20 +446,4 @@ function withConfigValue<C, K extends Extract<keyof C, string>>(
   if (typeof value !== "undefined") {
     outConfig[key] = value;
   }
-}
-
-function bundledDtsPath(): string {
-  const { extensionPath } = vscode.extensions.getExtension(denoExtensionId);
-  return path.resolve(
-    extensionPath,
-    "node_modules",
-    "typescript-deno-plugin",
-    "lib",
-    "lib.deno.d.ts",
-  );
-}
-
-async function restartTsServer(): Promise<void> {
-  await delay(1000);
-  vscode.commands.executeCommand("typescript.restartTsServer");
 }

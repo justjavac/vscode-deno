@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ##=========
-# Copy form vscode-ng-language-service
+# Modified form vscode-ng-language-service
 ##=========
 
 set -ex -o pipefail
@@ -16,7 +16,7 @@ rm -rf dist
 rm -rf **/*.tsbuildinfo
 
 # Build the client and server
-yarn run compile
+yarn compile
 
 # Copy files to package root
 cp package.* yarn.lock deno.png CHANGELOG.md README.md dist
@@ -37,7 +37,10 @@ pushd server
 yarn install --production --ignore-scripts
 popd
 
+# rename "./client/out/extension" --> "./client"
 sed -i -e 's#./client/out/extension#./client#' package.json
+
+# package
 ../node_modules/.bin/vsce package --yarn --out deno.vsix
 
 popd

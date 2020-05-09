@@ -1,4 +1,4 @@
-/** **copy from vscode-ng-language-service**
+/** **Modified from vscode-ng-language-service**
  *
  * @license
  * Copyright Google Inc. All Rights Reserved.

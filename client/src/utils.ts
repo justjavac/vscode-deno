@@ -95,7 +95,9 @@ export function getDenoDir(): string {
         denoDir = `${process.env.HOME}/Library/Caches/deno`;
         break;
       case "linux":
-        denoDir = `${process.env.HOME}/.cache/deno`;
+        denoDir = process.env.XDG_CACHE_HOME
+          ? `${process.env.XDG_CACHE_HOME}/deno`
+          : `${process.env.HOME}/.cache/deno`;
         break;
       default:
         denoDir = `${process.env.HOME}/.deno`;
@@ -228,5 +230,10 @@ export async function delay(ms: number): Promise<void> {
   });
 }
 
-// TODO: download Deno's .d.ts file
-export function downloadDtsForDeno(): void {}
+export async function restartTsServer(): Promise<void> {
+  await delay(1000);
+  vscode.commands.executeCommand("typescript.restartTsServer");
+}
+
+// TODO: download lib.deno.d.ts
+export function downloadLibDenoDts(): void {}
