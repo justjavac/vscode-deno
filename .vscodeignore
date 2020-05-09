@@ -7,6 +7,9 @@ src/**
 **/*.map
 *.vsix
 
+client/node_modules
+server/node_modules
+
 images/**/*.gif
 images/**/*.png
 
