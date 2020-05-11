@@ -250,7 +250,7 @@ export async function activate(context: vscode.ExtensionContext) {
     statusBarItem.tooltip = versions.raw;
     outputChannel.appendLine("Found deno, version:");
     outputChannel.appendLine(versions.raw);
-    generateDtsForDeno();
+    generateDtsForDeno(denoExtensionId);
   }
 
   function showStatusBarItem(show: boolean): void {
@@ -397,15 +397,10 @@ export async function activate(context: vscode.ExtensionContext) {
 
 export function deactivate() {}
 
+/** synchronize configuration with typescript-deno-plugin */
 function synchronizeConfiguration(api: any) {
-  const config = getConfiguration();
-
-  api.configurePlugin(pluginId, {
-    ...config,
-    dtsPath: bundledDtsPath(
-      vscode.extensions.getExtension(denoExtensionId).extensionPath,
-    ),
-  });
+  const { enable, tsconfig, importmap } = getConfiguration();
+  api.configurePlugin(pluginId, { enable, tsconfig, importmap });
 }
 
 function getConfiguration(): SynchronizedConfiguration {

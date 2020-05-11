@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/justjavac/vscode-deno"
+    "url": "https://github.com/denoland/vscode_deno"
   },
   "bugs": {
-    "url": "https://github.com/justjavac/vscode-deno/issues"
+    "url": "https://github.com/denoland/vscode_deno/issues"
   },
   "engines": {
     "vscode": "^1.41.0"
@@ -171,6 +171,6 @@
     "vscode-test": "^1.3.0"
   },
   "dependencies": {
-    "typescript-deno-plugin": "^1.14.0"
+    "typescript-deno-plugin": "file:/Users/justjavac/github/typescript-deno-plugin"
   }
 }
