@@ -1,3 +1,7 @@
+# Move to https://github.com/denoland/vscode_deno
+
+------
+
 # VS Code Deno extension
 
 [![Build Status](https://travis-ci.com/justjavac/vscode-deno.svg?branch=master)](https://travis-ci.com/justjavac/vscode-deno)
